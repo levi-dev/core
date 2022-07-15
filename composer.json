@@ -10,10 +10,24 @@
     "require": {
         "octopusosc/framework": "dev-main"
     },
+    "autoload": {
+        "psr-4": {
+            "OctopusOsc\\Core\\": "src"
+        }
+    },
     "repositories": {
         "octopusosc/framework": {
             "type": "vcs",
             "url": "git@github.com:levi-dev/framework.git"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OctopusOsc\\Core\\Providers\\CoreServiceProvider"
+            ],
+            "aliases": {
+            }
         }
     },
     "minimum-stability": "dev"
