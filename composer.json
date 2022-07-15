@@ -1,0 +1,19 @@
+{
+    "name": "octopusosc/core",
+    "description": "Octopus Osc Core",
+    "authors": [
+        {
+            "name": "Levi Luong",
+            "email": "luongtien270297@gmail.com"
+        }
+    ],
+    "require": {
+        "octopusosc/framework": "dev-main"
+    },
+    "repositories": {
+        "octopusosc/framework": {
+            "type": "vcs",
+            "url": "git@github.com:levi-dev/framework.git"
+        }
+    }
+}
