@@ -15,5 +15,6 @@
             "type": "vcs",
             "url": "git@github.com:levi-dev/framework.git"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
