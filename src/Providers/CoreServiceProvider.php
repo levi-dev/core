@@ -4,6 +4,7 @@ namespace OctopusOsc\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use OctopusOsc\Core\Commands\ModuleListCommand;
+use OctopusOsc\Core\Commands\ModuleSetupCommand;
 
 class CoreServiceProvider extends ServiceProvider
 {
@@ -14,7 +15,8 @@ class CoreServiceProvider extends ServiceProvider
 //        $this->loadViewsFrom(__DIR__ . "/../resources/views", "botble-demo");
 
         $this->commands([
-            ModuleListCommand::class
+            ModuleListCommand::class,
+            ModuleSetupCommand::class
         ]);
     }
 }

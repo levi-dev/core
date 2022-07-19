@@ -11,6 +11,9 @@
         "octopusosc/framework": "dev-main"
     },
     "autoload": {
+        "files": [
+            "registration.php"
+        ],
         "psr-4": {
             "OctopusOsc\\Core\\": "src"
         }
