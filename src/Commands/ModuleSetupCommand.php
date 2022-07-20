@@ -1,6 +1,7 @@
 <?php
 namespace OctopusOsc\Core\Commands;
 use Illuminate\Console\Command;
+use OctopusOsc\Core\Config\Modules;
 
 class ModuleSetupCommand extends Command
 {
@@ -24,68 +25,13 @@ class ModuleSetupCommand extends Command
      * Execute the console command.
      */
     public function handle(){
-        $modules = [
-          [
-              "name" => "Module Name",
-              "status" => true
-          ],
-          [
-              "name" => "Module Name",
-              "status" => true
-          ],
-          [
-              "name" => "Module Name",
-              "status" => true
-          ],
-          [
-              "name" => "Module Name",
-              "status" => true
-          ],
-          [
-              "name" => "Module Name",
-              "status" => true
-          ],
-          [
-              "name" => "Module Name",
-              "status" => true
-          ],
-          [
-              "name" => "Module Name",
-              "status" => true
-          ],
-          [
-              "name" => "Module Name",
-              "status" => true
-          ],
-          [
-              "name" => "Module Name",
-              "status" => true
-          ],
-          [
-              "name" => "Module Name",
-              "status" => true
-          ],
-          [
-              "name" => "Module Name",
-              "status" => true
-          ],
-          [
-              "name" => "Module Name",
-              "status" => true
-          ],
-          [
-              "name" => "Module Name",
-              "status" => true
-          ],
-          [
-              "name" => "Module Name",
-              "status" => true
-          ]
-        ];
-        $this->line(str_pad("Module Name", self::COLSPAN_1) . "|".str_pad("Status", self::COLSPAN_2). "|");
-        $this->line(str_pad("", self::COLSPAN_1, "-") . "|".str_pad("", self::COLSPAN_2, "-"). "|");
-        foreach ($modules as $module){
-            $this->line(str_pad($module["name"], self::COLSPAN_1) . "|".str_pad($module["status"] ? "Enable" : "Disable", self::COLSPAN_2). "|");
+        $configModules = config('module.modules');
+        $modulesActive = Modules::getModules();
+        $modulesKey = array_keys($modulesActive);
+        $newModules = array_fill_keys($modulesKey, true);
+        foreach ($newModules as $key => $value){
+            $newModules[$key] = array_key_exists($key,$configModules) ? $configModules[$key] : $value;
         }
+        return;
     }
 }
